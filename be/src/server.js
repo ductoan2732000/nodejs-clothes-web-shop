@@ -12,14 +12,14 @@ const port = 8080;
 global.__basedir = __dirname;
 
 const corsOptions = {
-  origin: true,
+  origin: ['http://localhost:3000', 'http://localhost:3001'],
   credentials: true,
 };
 server.use(cors(corsOptions));
 server.use(cookieParser());
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
-server.use('/static', express.static('./src/public'));
+server.use('/static', express.static('./data'));
 
 setRouter(server);
 
